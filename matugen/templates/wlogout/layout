@@ -1,0 +1,32 @@
+[
+  {
+    "label": "Bloquear",
+    "action": "loginctl lock-session",
+    "text": "󰌾",
+    "keybind": "l"
+  },
+  {
+    "label": "Suspender",
+    "action": "systemctl suspend",
+    "text": "󰤄",
+    "keybind": "s"
+  },
+  {
+    "label": "Cerrar sesión",
+    "action": "loginctl terminate-user $USER",
+    "text": "󰍃",
+    "keybind": "e"
+  },
+  {
+    "label": "Reiniciar",
+    "action": "systemctl reboot",
+    "text": "󰜉",
+    "keybind": "r"
+  },
+  {
+    "label": "Apagar",
+    "action": "systemctl poweroff",
+    "text": "󰐥",
+    "keybind": "p"
+  }
+]

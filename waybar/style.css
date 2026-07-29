@@ -1,0 +1,41 @@
+@import "colors.css";
+
+* {
+  font-family: "JetBrainsMono Nerd Font";
+  font-size: 13px;
+  border: none;
+  border-radius: 0;
+  min-height: 0;
+}
+
+window#waybar {
+  background-color: alpha(@background, 0.85);
+  color: @on_background;
+}
+
+#workspaces button {
+  padding: 0 5px;
+  color: @outline;
+}
+
+#workspaces button.active {
+  color: @on_background;
+}
+
+#clock,
+#cpu,
+#custom-gpu,
+#memory,
+#network,
+#pulseaudio,
+#tray,
+#mpris,
+#custom-nixos {
+  padding: 0 10px;
+  color: @on_background;
+}
+
+#custom-nixos {
+  color: @primary;
+  font-size: 16px;
+}

@@ -1,0 +1,203 @@
+/* ===================================================
+   swaync — rice monocromático gris
+   Fuente: JetBrainsMono Nerd Font
+   =================================================== */
+
+@define-color cc-bg          rgba(24, 24, 26, 0.92);
+@define-color cc-bg-alt      rgba(34, 34, 37, 0.92);
+@define-color notif-bg       rgba(28, 28, 31, 0.96);
+@define-color border-col     rgba(120, 120, 128, 0.35);
+@define-color text-col       #e4e4e7;
+@define-color text-dim       #9a9aa2;
+@define-color accent         #b8b8c0;
+@define-color critical       #c9878a;
+@define-color hover-col      rgba(255, 255, 255, 0.06);
+
+* {
+  font-family: "JetBrainsMono Nerd Font", monospace;
+  font-size: 13px;
+  transition: all 0.2s ease-in-out;
+}
+
+/* ---------- Control center ---------- */
+.control-center {
+  background: transparent;
+}
+
+.control-center-list {
+  background: transparent;
+}
+
+.floating-notifications.control-center,
+.control-center .notification-row {
+  background: transparent;
+}
+
+.control-center-scrollbox {
+  background: @cc-bg;
+  border: 1px solid @border-col;
+  border-radius: 16px;
+  padding: 6px;
+}
+
+/* ---------- Notification cards ---------- */
+.notification-row {
+  outline: none;
+  margin: 6px;
+}
+
+.notification {
+  background: @notif-bg;
+  border: 1px solid @border-col;
+  border-radius: 14px;
+  padding: 4px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+}
+
+.notification-content {
+  padding: 8px;
+}
+
+.notification .summary {
+  color: @text-col;
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.notification .time {
+  color: @text-dim;
+  font-size: 11px;
+}
+
+.notification .body {
+  color: @text-dim;
+  font-size: 12px;
+}
+
+.notification-icon {
+  border-radius: 10px;
+}
+
+.close-button {
+  background: @cc-bg-alt;
+  color: @text-dim;
+  border-radius: 999px;
+  min-width: 22px;
+  min-height: 22px;
+  padding: 0;
+  margin: 4px;
+}
+
+.close-button:hover {
+  background: @hover-col;
+  color: @text-col;
+}
+
+/* Estados de urgencia — todo dentro de la paleta gris, solo cambia el acento */
+.notification.critical {
+  border: 1px solid @critical;
+}
+
+.notification.critical .summary {
+  color: @critical;
+}
+
+/* ---------- Header / title widget ---------- */
+.widget-title {
+  color: @text-col;
+  font-weight: 700;
+  font-size: 15px;
+  padding: 12px 14px 6px 14px;
+}
+
+.widget-title > button {
+  background: @cc-bg-alt;
+  color: @text-dim;
+  border-radius: 10px;
+  padding: 4px 10px;
+  border: 1px solid @border-col;
+}
+
+.widget-title > button:hover {
+  background: @hover-col;
+  color: @text-col;
+}
+
+/* ---------- DnD widget ---------- */
+.widget-dnd {
+  padding: 8px 14px;
+  color: @text-col;
+}
+
+.widget-dnd > switch {
+  background: @cc-bg-alt;
+  border: 1px solid @border-col;
+  border-radius: 999px;
+}
+
+.widget-dnd > switch:checked {
+  background: @accent;
+}
+
+.widget-dnd > switch slider {
+  background: @text-col;
+  border-radius: 999px;
+}
+
+/* ---------- MPRIS (media player) ---------- */
+.widget-mpris {
+  background: @cc-bg-alt;
+  border: 1px solid @border-col;
+  border-radius: 14px;
+  margin: 6px 10px;
+  padding: 8px;
+}
+
+.widget-mpris-player {
+  padding: 6px;
+}
+
+.widget-mpris > box > button {
+  background: transparent;
+  color: @text-col;
+  border-radius: 999px;
+}
+
+.widget-mpris > box > button:hover {
+  background: @hover-col;
+}
+
+/* ---------- Buttons grid (power menu) ---------- */
+.widget-buttons-grid {
+  padding: 10px;
+}
+
+.widget-buttons-grid > flowbox > flowboxchild > button {
+  background: @cc-bg-alt;
+  color: @text-col;
+  border: 1px solid @border-col;
+  border-radius: 12px;
+  min-width: 48px;
+  min-height: 48px;
+  font-size: 16px;
+}
+
+.widget-buttons-grid > flowbox > flowboxchild > button:hover {
+  background: @hover-col;
+  border-color: @accent;
+}
+
+/* ---------- Scrollbar ---------- */
+scrollbar {
+  background: transparent;
+}
+
+scrollbar slider {
+  background: @cc-bg-alt;
+  border-radius: 999px;
+  min-width: 6px;
+}
+
+scrollbar slider:hover {
+  background: @accent;
+}

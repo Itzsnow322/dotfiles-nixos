@@ -1,0 +1,89 @@
+/* ~/.config/wlogout/style.css */
+
+* {
+    font-family: "Maple Mono NF";
+    font-size: 14px;
+    color: #e5e5e5;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    text-shadow: none;
+}
+
+window {
+    background-color: rgba(15, 15, 18, 0.75);
+}
+
+#outer-box {
+    margin: 40px;
+}
+
+#inner-box {
+    background: rgba(30, 30, 35, 0.92);
+    border-radius: 24px;
+    border: 1px solid rgba(255,255,255,0.08);
+    padding: 24px;
+}
+
+#buttons {
+    padding: 10px;
+}
+
+button {
+    background: rgba(50, 50, 58, 0.55);
+    border-radius: 18px;
+    border: 1px solid rgba(255,255,255,0.05);
+    margin: 12px;
+    padding: 18px;
+    transition: all 0.2s ease;
+    background-repeat: no-repeat;
+    background-position: center 28px;
+    background-size: 64px;
+}
+
+button label {
+    margin-top: 92px;
+    color: #d8d8d8;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+button:hover {
+    background-color: rgba(120, 120, 135, 0.25);
+    border: 1px solid rgba(180,180,180,0.35);
+}
+
+button:focus {
+    background-color: rgba(140, 140, 150, 0.30);
+    border: 1px solid #b0b0b0;
+}
+
+/* Power */
+#shutdown {
+    background-image: image(url("icons/shutdown.png"));
+}
+
+/* Restart */
+#reboot {
+    background-image: image(url("icons/reboot.png"));
+}
+
+/* Logout */
+#logout {
+    background-image: image(url("icons/logout.png"));
+}
+
+/* Lock */
+#lock {
+    background-image: image(url("icons/lock.png"));
+}
+
+/* Suspend */
+#suspend {
+    background-image: image(url("icons/suspend.png"));
+}
+
+/* Hibernate */
+#hibernate {
+    background-image: image(url("icons/hibernate.png"));
+}

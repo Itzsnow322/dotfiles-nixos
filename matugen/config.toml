@@ -1,0 +1,30 @@
+[config]
+version_check = false
+
+[templates.colors_json]
+input_path = '~/.config/matugen/templates/colors.json'
+output_path = '~/.config/matugen/colors.json'
+
+[templates.btop]
+input_path = '~/.config/matugen/templates/btop/btop.theme'
+output_path = '~/.config/btop/themes/matugen.theme'
+
+[templates.gtk3]
+input_path = '~/.config/matugen/templates/gtk-3.0/gtk.css'
+output_path = '~/.config/gtk-3.0/gtk.css'
+
+[templates.gtk4]
+input_path = '~/.config/matugen/templates/gtk-4.0/gtk.css'
+output_path = '~/.config/gtk-4.0/gtk.css'
+
+[templates.kitty]
+input_path = '~/.config/matugen/templates/kitty/colors.conf'
+output_path = '~/.config/kitty/colors.conf'
+
+[templates.waybar]
+input_path = '~/.config/matugen/templates/waybar/colors.css'
+output_path = '~/.config/waybar/colors.css'
+
+[templates.wlogout]
+input_path = '~/.config/matugen/templates/wlogout/style.css'
+output_path = '~/.config/wlogout/style.css'

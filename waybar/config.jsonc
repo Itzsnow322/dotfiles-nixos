@@ -1,0 +1,75 @@
+{
+  "layer": "top",
+  "position": "top",
+  "height": 30,
+  "spacing": 4,
+  "modules-left": [
+    "custom/nixos",
+    "niri/workspaces",
+    "mpris"
+  ],
+  "modules-center": [
+    "clock"
+  ],
+  "modules-right": [
+    "pulseaudio",
+    "cpu",
+    "custom/gpu",
+    "memory",
+    "network",
+    "tray"
+  ],
+  "custom/nixos": {
+    "format": "󱄅",
+    "tooltip": false
+  },
+  "niri/workspaces": {
+    "on-click": "activate"
+  },
+  "mpris": {
+    "format": "{player_icon} {title} - {artist}",
+    "format-paused": "{status_icon} {title} - {artist}",
+    "max-length": 60,
+    "player-icons": {
+      "default": "▶",
+      "mpv": "🎵"
+    },
+    "status-icons": {
+      "paused": "⏸"
+    }
+  },
+  "pulseaudio": {
+    "format": "{icon} {volume}%",
+    "format-muted": "󰝟 muted",
+    "format-icons": {
+      "default": ["󰕿", "󰖀", "󰕾"]
+    },
+    "on-click": "pavucontrol"
+  },
+  "cpu": {
+    "format": " {usage}%",
+    "interval": 2
+  },
+  "custom/gpu": {
+    "format": " {}%",
+    "exec": "nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader,nounits",
+    "interval": 2,
+    "tooltip": false
+  },
+  "memory": {
+    "format": " {used:0.1f}G",
+    "interval": 2
+  },
+  "network": {
+    "format-ethernet": "󰈀 {ifname}",
+    "format-disconnected": "󰤭 disconnected",
+    "tooltip-format": "{ipaddr}"
+  },
+  "clock": {
+    "format": " {:%H:%M - %d/%m}",
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+  },
+  "tray": {
+    "spacing": 10
+  }
+}
