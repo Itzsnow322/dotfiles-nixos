@@ -77,9 +77,7 @@ cursor {
 
 spawn-at-startup "nm-applet" "--indicator"
 spawn-at-startup "waybar"
-spawn-at-startup "swaybg" "-i" "/home/mj/Pictures/Wallpapers/28.jpg" "-m" "fill"
 spawn-at-startup "swaync"
-spawn-at-startup "swayidle" "-w" "timeout" "300" "swaylock" "-f" "before-sleep" "swaylock" "-f"
 
 // ==================================================
 // KEYBINDS

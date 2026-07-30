@@ -1,0 +1,1 @@
+/home/mj/dotfiles/hypr-scripts/wallpaper.sh
