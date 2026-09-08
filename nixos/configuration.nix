@@ -12,7 +12,7 @@
   nixpkgs.config.allowUnfree = true;
   # Boot
   boot.loader.systemd-boot.enable = true;
-  boot.loader.systemd-boot.graceful = true; # necesario por el ESP compartido con Ventoy
+  boot.loader.systemd-boot.graceful = true;
   boot.loader.efi.canTouchEfiVariables = true;
   # Network
   networking.hostName = "nixos";
@@ -36,37 +36,40 @@
     '';
   };
 
+# SDDM
+services.displayManager.sddm = {
+  enable = true;
+  wayland.enable = true;
+};
 
-  # Niri
-  programs.niri.enable = true;
-  # uwsm para manejo de sesión (recomendado para niri)
-  programs.uwsm.enable = true;
-  programs.uwsm.waylandCompositors.niri = {
-    prettyName = "Niri";
-    comment = "Niri compositor managed by uwsm";
-    binPath = "/run/current-system/sw/bin/niri-session";
-  };
-  # Steam
-  programs.steam = {
-    enable = true;
-    remotePlay.openFirewall = true;
-    dedicatedServer.openFirewall = true;
-  };
-  # SDDM
-  services.displayManager.sddm = {
-    enable = true;
-    wayland.enable = true;
-  };
-services.displayManager.defaultSession = "niri-uwsm";
-  # Audio
-  services.pulseaudio.enable = false;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    wireplumber.enable = true;
-  };
+# Niri
+programs.niri.enable = true;
+programs.uwsm.enable = true;
+programs.uwsm.waylandCompositors.niri = {
+  prettyName = "Niri";
+  comment = "Niri compositor managed by uwsm";
+  binPath = "/run/current-system/sw/bin/niri-session";
+};
+
+# Hyprland
+programs.hyprland = {
+  enable = true;
+  xwayland.enable = true;
+};
+
+ # KDE Plasma 
+services.displayManager.defaultSession = "niri-uwsm"; 
+services.desktopManager.plasma6.enable = true;
+
+# Audio
+services.pulseaudio.enable = false;
+services.pipewire = {
+  enable = true;
+  alsa.enable = true;
+  alsa.support32Bit = true;
+  pulse.enable = true;
+  wireplumber.enable = true;
+};
   # AMD
   hardware.graphics = {
     enable = true;
@@ -76,6 +79,20 @@ services.displayManager.defaultSession = "niri-uwsm";
   nixpkgs.config.permittedInsecurePackages = [
     "ventoy-1.1.10"
   ];
+nixpkgs.overlays = [
+  (final: prev: {
+    caelestia-shell = (builtins.getFlake "github:caelestia-dots/shell").packages.${prev.system}.default;
+  })
+];
+
+
+# Steam
+programs.steam = {
+  enable = true;
+  remotePlay.openFirewall = true;
+  dedicatedServer.openFirewall = true;
+};
+
   # Gnome services
   services.gnome.gnome-keyring.enable = true;
   services.tumbler.enable = true;
@@ -130,9 +147,13 @@ programs.nix-ld = {
     extraPortals = [
       pkgs.xdg-desktop-portal-gnome
       pkgs.xdg-desktop-portal-gtk
+      pkgs.xdg-desktop-portal-hyprland
     ];
-    config.niri.default = [ "gnome" "gtk" ];
-    config.common.default = [ "gtk" ];
+    config = {
+      niri.default = [ "gnome" "gtk" ];
+      hyprland.default = [ "hyprland" "gtk" ];
+      common.default = [ "gtk" ];
+    };
   };
 
    # Fonts
@@ -213,6 +234,7 @@ programs.nix-ld = {
     papirus-icon-theme
     brightnessctl
     quickshell
+    caelestia-shell
     matugen
     swayosd
     rofi
@@ -243,7 +265,7 @@ programs.nix-ld = {
 
     # Network
     networkmanagerapplet
-    # Screenshots (grim+slurp funcionan igual en niri)
+    # Screenshots 
     grim
     slurp
     libnotify
@@ -265,6 +287,13 @@ programs.nix-ld = {
     wineWowPackages.stable
     nspr
     nss
- ];
 
+    # Hyprland ecosystem
+    hyprpaper
+    hyprlock
+    hypridle
+    hyprpicker
+    gpu-screen-recorder
+ ];
+ 
 }
